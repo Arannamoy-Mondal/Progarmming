@@ -5,21 +5,19 @@ public:
         int k = pat.length(), n = txt.length();
         for (int i=0;i<k;i++) 
         {
-            int index = pat[i] - 'a';
-            mpp[index]++;
+            mpp[pat[i] - 'a']++;
         }
         for (int i=0;i<k;i++) 
         {
-            int index = txt[i] - 'a';
-            mpf[index]++;
+            mpf[txt[i] - 'a']++;
         }
         int cnt = 0;
-        if (equal(mpp.begin(), mpp.end(), mpf.begin())) cnt++;
+        if (mpp==mpf) cnt++;
         for (int i = 1; i <= n-k; i++) 
         {
             mpf[txt[i+k-1]-'a']++;
             mpf[txt[i-1]-'a']--;
-            if (equal(mpp.begin(), mpp.end(), mpf.begin())) cnt++;
+            if (mpp==mpf) cnt++;
         }
         return cnt;
     }
