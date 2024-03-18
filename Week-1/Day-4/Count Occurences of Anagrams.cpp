@@ -2,7 +2,7 @@ class Solution {
 public:
     int search(string pat, string txt) {
         vector<int>mpp(26, 0),mpf(26, 0);
-        int k = pat.length(), n = txt.length();
+        int k = pat.size(), n = txt.size();
         for (int i=0;i<k;i++) 
         {
             mpp[pat[i] - 'a']++;
