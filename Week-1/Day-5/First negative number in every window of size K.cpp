@@ -8,7 +8,8 @@ vector<int> printFirstNegativeInteger(int A[], int N, int K)
         int j=0;
         while (j<K) 
         {
-            if (A[j] < 0) {
+            if (A[j] < 0) 
+            {
                 q.push(A[j]);
             }
             j++;
@@ -25,7 +26,7 @@ vector<int> printFirstNegativeInteger(int A[], int N, int K)
             {
                 q.pop();
             }
-            if (A[i + K - 1] < 0) 
+            if (A[i + K - 1] <0) 
             {
                 q.push(A[i + K - 1]);
             }
