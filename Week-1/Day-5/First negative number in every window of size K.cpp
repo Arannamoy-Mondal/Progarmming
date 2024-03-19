@@ -1,7 +1,7 @@
 /*
 Working on progress
 */
-#define int int
+#define int long long
 vector<int> printFirstNegativeInteger(int A[], int N, int K) 
 {
         queue<int>q;
