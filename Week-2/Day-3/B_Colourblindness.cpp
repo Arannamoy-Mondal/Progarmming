@@ -1,3 +1,4 @@
+/*https://codeforces.com/contest/1722/problem/B*/
 #include<bits/stdc++.h>
 #define int long long
 #define nl "\n"
