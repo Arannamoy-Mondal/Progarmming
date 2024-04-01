@@ -1,4 +1,3 @@
-/*https://codeforces.com/gym/105048/problem/A*/
 #include<bits/stdc++.h>
 #define int long long
 #define nl "\n"
@@ -23,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            res%N;
+            res%=N;
         }
         x*=x;
         y>>=1;
@@ -43,15 +42,18 @@ int32_t main()
 }
 void solve()
 {
-  string s;
-  getline(cin,s);
-  if(s.find("BE")!=-1
-  ||s.find("bE")!=-1||
-  s.find("Be")!=-1||
-  s.find("be")!=-1)
+  string s,t;
+  cin>>s;
+  t=s;
+  reverse(s.begin(),s.end());
+  if(s==t)cout<<0<<nl;
+  else 
   {
-    cout<<"YES";
-    return;
+    int cnt=0;
+    ffor(i,0,s.size())
+    {
+        if(s[i]!=t[i])cnt++;
+    }
+    cout<<cnt/2<<nl;
   }
-  cout<<"NO";
 }

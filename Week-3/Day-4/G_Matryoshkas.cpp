@@ -1,4 +1,3 @@
-/*https://codeforces.com/gym/105048/problem/A*/
 #include<bits/stdc++.h>
 #define int long long
 #define nl "\n"
@@ -23,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            res%N;
+            res%=N;
         }
         x*=x;
         y>>=1;
@@ -35,7 +34,7 @@ int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
  int ts=1;
- //cin>>ts;
+ cin>>ts;
  while(ts--)
  {
     solve();
@@ -43,15 +42,25 @@ int32_t main()
 }
 void solve()
 {
-  string s;
-  getline(cin,s);
-  if(s.find("BE")!=-1
-  ||s.find("bE")!=-1||
-  s.find("Be")!=-1||
-  s.find("be")!=-1)
+  int n;
+  cin>>n;
+  int a[n];
+  ffor(i,0,n)cin>>a[i];
+  sort(a,a+n);
+  map<int,int>mp;
+  int mx=0;
+  ffor(i,0,n)mp[a[i]]++;
+  ffor(i,0,n)
   {
-    cout<<"YES";
-    return;
+    if(!mp[a[i]])
+    {
+        mx++;
+        while(mp[a[i]]>0)
+        {
+            mp[a[i]]--;
+            a[i]++;
+        }
+    }
   }
-  cout<<"NO";
+  cout<<mx<<nl;
 }

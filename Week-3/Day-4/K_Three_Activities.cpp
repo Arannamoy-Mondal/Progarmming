@@ -1,4 +1,3 @@
-/*https://codeforces.com/gym/105048/problem/A*/
 #include<bits/stdc++.h>
 #define int long long
 #define nl "\n"
@@ -23,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            res%N;
+            res%=N;
         }
         x*=x;
         y>>=1;
@@ -35,7 +34,7 @@ int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
  int ts=1;
- //cin>>ts;
+ cin>>ts;
  while(ts--)
  {
     solve();
@@ -43,15 +42,44 @@ int32_t main()
 }
 void solve()
 {
-  string s;
-  getline(cin,s);
-  if(s.find("BE")!=-1
-  ||s.find("bE")!=-1||
-  s.find("Be")!=-1||
-  s.find("be")!=-1)
+  int n;
+  cin>>n;
+  vector<pair<int,int>>a,b,c;
+  ffor(i,0,n)
   {
-    cout<<"YES";
-    return;
+    int t;
+    cin>>t;
+    a.pb({t,i});
   }
-  cout<<"NO";
+  ffor(i,0,n)
+  {
+    int t;
+    cin>>t;
+    b.pb({t,i});
+  }
+  ffor(i,0,n)
+  {
+    int t;
+    cin>>t;
+    c.pb({t,i});
+  }
+  int mx=INT_MIN;
+  sort(a.begin(),a.end());
+  sort(b.begin(),b.end());
+  sort(c.begin(),c.end());
+  rfor(i,n-3,n)
+  {
+    rfor(j,n-3,n)
+    {
+        rfor(k,n-3,n)
+        {
+            if(a[i].second!=b[j].second && a[i].second!=c[k].second
+            && b[j].second!=c[k].second)
+            {
+                mx=max(mx,a[i].first+b[j].first+c[k].first);
+            }
+        }
+    }
+  }
+  cout<<mx<<nl;
 }

@@ -1,4 +1,3 @@
-/*https://codeforces.com/gym/105048/problem/A*/
 #include<bits/stdc++.h>
 #define int long long
 #define nl "\n"
@@ -35,7 +34,7 @@ int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
  int ts=1;
- //cin>>ts;
+ cin>>ts;
  while(ts--)
  {
     solve();
@@ -43,15 +42,32 @@ int32_t main()
 }
 void solve()
 {
-  string s;
-  getline(cin,s);
-  if(s.find("BE")!=-1
-  ||s.find("bE")!=-1||
-  s.find("Be")!=-1||
-  s.find("be")!=-1)
+  int n,q;
+  cin>>n>>q;
+  vector<int>v(n+1),p(n+1);
+  cin>>v[1];
+  p[1]=v[1];
+  ffor(i,2,n+1)
   {
-    cout<<"YES";
-    return;
+    cin>>v[i];
+    p[i]=p[i-1]+v[i];
   }
-  cout<<"NO";
+  while(q--)
+  {
+    int a,b,c;
+    cin>>a>>b>>c;
+    if(a==1)
+    {
+       int sum;
+       sum=p[n]-p[b]+(c*(b-a+1));
+       if(sum%2)cout<<"YES"<<nl;
+       else cout<<"NO"<<nl;
+    }
+    else
+    {
+        int sum=p[n]-p[b]-p[a-1]+(c*(b-a+1));
+        if(sum%2)cout<<"YES"<<nl;
+        else cout<<"NO"<<nl;
+    }
+  }
 }

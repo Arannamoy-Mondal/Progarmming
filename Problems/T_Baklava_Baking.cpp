@@ -1,4 +1,3 @@
-/*https://codeforces.com/gym/105048/problem/A*/
 #include<bits/stdc++.h>
 #define int long long
 #define nl "\n"
@@ -13,7 +12,7 @@
 #define debug(a)
 #define sep(a)
 #endif
-const int N=1e5+5;
+const int N=1e8;
 using namespace std;
 int power(int x,int y)
 {
@@ -35,7 +34,7 @@ int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
  int ts=1;
- //cin>>ts;
+ cin>>ts;
  while(ts--)
  {
     solve();
@@ -43,15 +42,7 @@ int32_t main()
 }
 void solve()
 {
-  string s;
-  getline(cin,s);
-  if(s.find("BE")!=-1
-  ||s.find("bE")!=-1||
-  s.find("Be")!=-1||
-  s.find("be")!=-1)
-  {
-    cout<<"YES";
-    return;
-  }
-  cout<<"NO";
+  int n;
+  cin>>n;
+  cout<<(599999999/n)-(499999999/n)<<nl;
 }
