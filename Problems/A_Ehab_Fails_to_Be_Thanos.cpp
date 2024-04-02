@@ -34,7 +34,7 @@ int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
  int ts=1;
- cin>>ts;
+ //cin>>ts;
  while(ts--)
  {
     solve();
@@ -42,22 +42,14 @@ int32_t main()
 }
 void solve()
 {
-  int n,k,s=-1,e,sum=0;
-  cin>>n>>k;
-  int a[n];
-  ffor(i,0,n)
-  {
-    cin>>a[i];
-    if(a[i]%k)
-    {
-        if(s==-1)s=i;
-        e=i;
-    }
-    sum+=a[i];
-  }
-  debug(k)
-  debug(sum)
-  if(sum%k)cout<<n<<nl;
-  else if(s==-1)cout<<-1<<nl;
-  else cout<<n-min(n-e,s+1)<<nl;
+  int n;
+  cin>>n;
+  int a[2*n];
+  ffor(i,0,2*n)cin>>a[i];
+  sort(a,a+2*n);
+  int sum1=0,sum2=0;
+  ffor(i,0,n)sum1+=a[i];
+  ffor(i,n,2*n)sum2+=a[i];
+  if(sum1<sum2)ffor(i,0,2*n)cout<<a[i]<<blk;
+  else cout<<-1<<nl;
 }

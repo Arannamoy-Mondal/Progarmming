@@ -42,22 +42,8 @@ int32_t main()
 }
 void solve()
 {
-  int n,k,s=-1,e,sum=0;
-  cin>>n>>k;
-  int a[n];
-  ffor(i,0,n)
-  {
-    cin>>a[i];
-    if(a[i]%k)
-    {
-        if(s==-1)s=i;
-        e=i;
-    }
-    sum+=a[i];
-  }
-  debug(k)
-  debug(sum)
-  if(sum%k)cout<<n<<nl;
-  else if(s==-1)cout<<-1<<nl;
-  else cout<<n-min(n-e,s+1)<<nl;
+  int x,y,z;
+  cin>>x>>y>>z;
+  if((x*y)<=(z*24*60))cout<<"YES"<<nl;
+  else cout<<"NO"<<nl;
 }
