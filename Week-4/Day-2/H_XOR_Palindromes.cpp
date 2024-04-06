@@ -22,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            res%=N;
+            //res%=N;
         }
         x*=x;
         y>>=1;
@@ -42,17 +42,29 @@ int32_t main()
 }
 void solve()
 {
-    //if n is even then xor is 0 otherwise xor is any number
-  int n,xr=0;
+  int n;
   cin>>n;
-  int a[n];
-  ffor(i,0,n)
+  string s;
+  cin>>s;
+  int cnt=0;
+  for(int i=0,j=n-1;i<n,j>=0;i++,j--)if(s[i]!=s[j])cnt++;
+  if(n&1)
   {
-    cin>>a[i];
-    xr^=a[i];
+    ffor(i,0,(int)cnt/2)cout<<'0';
+    ffor(i,cnt/2,n-(cnt/2)+1)cout<<'1';
+    ffor(i,n-cnt+1,n)cout<<'0';
+    cout<<nl;
+    return;
   }
-  if(!xr)cout<<0<<nl;
-  else if(n%2)cout<<xr<<nl;
-  else cout<<-1<<nl;
+  ffor(i,0,n-(cnt/2)+1)
+  {
+    if(i<cnt/2)
+    {
+        cout<<'0';continue;
+    }
+    if((i-cnt/2)&1)cout<<'0';
+    else cout<<'1';
+  }
+  ffor(i,0,cnt/2)cout<<'0';
+  cout<<nl;
 }
-

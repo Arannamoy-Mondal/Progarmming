@@ -22,7 +22,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            res%=N;
+            //res%=N;
         }
         x*=x;
         y>>=1;
@@ -34,7 +34,7 @@ int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
  int ts=1;
- cin>>ts;
+ //cin>>ts;
  while(ts--)
  {
     solve();
@@ -42,17 +42,19 @@ int32_t main()
 }
 void solve()
 {
-    //if n is even then xor is 0 otherwise xor is any number
-  int n,xr=0;
+  int n;
   cin>>n;
   int a[n];
+  ffor(i,0,n)cin>>a[i];
+  int ans=0,cntp=0,cntn=0;
   ffor(i,0,n)
   {
-    cin>>a[i];
-    xr^=a[i];
+    if(a[i]==1)continue;
+    if(a[i]>=0)ans+=abs(a[i]-1);
+    else ans+=abs(a[i]+1);
+    if(a[i]==0)cntp++;
+    if(a[i]<0)cntn++;
   }
-  if(!xr)cout<<0<<nl;
-  else if(n%2)cout<<xr<<nl;
-  else cout<<-1<<nl;
+  if((cntn&1) && !cntp)ans+=2;
+  cout<<ans<<nl;
 }
-

@@ -5,6 +5,7 @@
 #define ffor(i,in,n) for(int i=in;i<n;i++)
 #define rfor(i,in,n) for(int i=n-1;i>=in;i--)
 #define pb push_back
+#define vector deque
 #ifndef ONLINE_JUDGE
 #define debug(a) cout<<#a<<blk<<a<<nl;
 #define sep(a) cout<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
@@ -22,7 +23,7 @@ int power(int x,int y)
         if(y&1)
         {
             res*=x;
-            res%=N;
+            //res%=N;
         }
         x*=x;
         y>>=1;
@@ -42,17 +43,16 @@ int32_t main()
 }
 void solve()
 {
-    //if n is even then xor is 0 otherwise xor is any number
-  int n,xr=0;
+  int n;
   cin>>n;
-  int a[n];
+  string s;
+  cin>>s;
+  vector<int>v;
   ffor(i,0,n)
   {
-    cin>>a[i];
-    xr^=a[i];
+    if(s[i]=='0')continue;
+    v.pb(i);
   }
-  if(!xr)cout<<0<<nl;
-  else if(n%2)cout<<xr<<nl;
-  else cout<<-1<<nl;
+  if(v.size()%2==0 && (v.size()!=2 || v[0]+1 != v[1]))cout<<"YES"<<nl;
+  else cout<<"NO"<<nl;
 }
-
