@@ -48,23 +48,25 @@ void solve()
   cin>>s;
   int cnt=0;
   for(int i=0,j=n-1;i<n,j>=0;i++,j--)if(s[i]!=s[j])cnt++;
+  cnt/=2;
   if(n&1)
   {
-    ffor(i,0,(int)cnt/2)cout<<'0';
-    ffor(i,cnt/2,n-(cnt/2)+1)cout<<'1';
-    ffor(i,n-cnt+1,n)cout<<'0';
+    ffor(i,0,cnt)cout<<'0';
+    ffor(i,cnt,n-cnt+1)cout<<'1';
+    ffor(i,n-cnt+1,n+1)cout<<'0';
     cout<<nl;
     return;
   }
-  ffor(i,0,n-(cnt/2)+1)
+  ffor(i,0,n-cnt+1)
   {
-    if(i<cnt/2)
+    if(i<cnt)
     {
-        cout<<'0';continue;
+        cout<<'0';
+        continue;
     }
-    if((i-cnt/2)&1)cout<<'0';
+    if((i-cnt)&1)cout<<'0';
     else cout<<'1';
   }
-  ffor(i,0,cnt/2)cout<<'0';
+  ffor(i,0,cnt)cout<<'0';
   cout<<nl;
 }
