@@ -45,6 +45,9 @@ void solve()
   string s;
   cin>>s;
   int n=s.size();
-  n=((log2(n))/2 -1)/2 ;// ((log2(n))/2 )/2;
-  cout<<n<<nl;
+  if(n&1)
+  {
+    cout<<(n/2)+(count(s.begin(),s.end(),'1')>1);
+  }
+  else cout<<n/2;
 }

@@ -33,6 +33,12 @@ void solve();
 int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+ #ifndef ONLINE_JUDGE
+   freopen("ICA-13.txt","r",stdin);
+   freopen("ICA-13-o.txt","a",stdout);
+   cout<<"*******************"<<nl;
+ #endif
+ freopen("max-pair.in","r",stdin);
  int ts=1;
  cin>>ts;
  while(ts--)
@@ -42,36 +48,8 @@ int32_t main()
 }
 void solve()
 {
-  int n,k;
-  cin>>n>>k;
-  int a[n],cnt0=0,cnt2=0,ans=0;
-  ffor(i,0,n)
-  {
-    cin>>a[i];
-    if(a[i]%2)cnt0++;
-    else cnt2++;
-    ans+=a[i];
-  }
-  if(!cnt0)
-  {
-    cout<<"NO"<<nl;
-  }
-  else if(k==n)
-  {
-    if(ans%2)cout<<"YES"<<nl;
-    else cout<<"NO"<<nl;
-  }
-  else
-  {
-    if(cnt2)cout<<"YES"<<nl;
-    else 
-    {
-        if(k%2)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
-    }
-  }
-
+  string s;;
+  cin>>s;
+  if(s[0]==s.back())cout<<s.size()-2<<nl;
+  else cout<<s.size()-1<<nl;
 }
-//   if(v.size()%2==1  /*&& v[0]+1 ==v[1]*/)cout<<"NO"<<nl;
-//   else if(v.size()==2 && v[0]+1 == v[1])cout<<"NO"<<nl;
-//   else cout<<"YES"<<nl;

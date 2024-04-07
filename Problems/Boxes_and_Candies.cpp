@@ -34,7 +34,7 @@ int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
  int ts=1;
- cin>>ts;
+ //cin>>ts;
  while(ts--)
  {
     solve();
@@ -44,34 +44,26 @@ void solve()
 {
   int n,k;
   cin>>n>>k;
-  int a[n],cnt0=0,cnt2=0,ans=0;
-  ffor(i,0,n)
+  int a[n];
+  ffor(i,0,n)cin>>a[i];
+  int ans=0;
+  ffor(i,0,n-1)
   {
-    cin>>a[i];
-    if(a[i]%2)cnt0++;
-    else cnt2++;
-    ans+=a[i];
-  }
-  if(!cnt0)
-  {
-    cout<<"NO"<<nl;
-  }
-  else if(k==n)
-  {
-    if(ans%2)cout<<"YES"<<nl;
-    else cout<<"NO"<<nl;
-  }
-  else
-  {
-    if(cnt2)cout<<"YES"<<nl;
-    else 
+    if(a[i] + a[i + 1] > k) 
     {
-        if(k%2)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
-    }
+            int tmp= (a[i] + a[i + 1]) - k;
+            ans += tmp;
+            if(tmp > a[i + 1]) 
+            {
+                tmp -= a[i + 1];
+                a[i + 1] = 0;
+                a[i] -= tmp;
+            }
+            else 
+            {
+                a[i + 1] -=tmp;
+            }
+        }
   }
-
+  cout<<ans<<nl;
 }
-//   if(v.size()%2==1  /*&& v[0]+1 ==v[1]*/)cout<<"NO"<<nl;
-//   else if(v.size()==2 && v[0]+1 == v[1])cout<<"NO"<<nl;
-//   else cout<<"YES"<<nl;

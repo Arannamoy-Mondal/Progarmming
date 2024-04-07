@@ -42,36 +42,8 @@ int32_t main()
 }
 void solve()
 {
-  int n,k;
-  cin>>n>>k;
-  int a[n],cnt0=0,cnt2=0,ans=0;
-  ffor(i,0,n)
-  {
-    cin>>a[i];
-    if(a[i]%2)cnt0++;
-    else cnt2++;
-    ans+=a[i];
-  }
-  if(!cnt0)
-  {
-    cout<<"NO"<<nl;
-  }
-  else if(k==n)
-  {
-    if(ans%2)cout<<"YES"<<nl;
-    else cout<<"NO"<<nl;
-  }
-  else
-  {
-    if(cnt2)cout<<"YES"<<nl;
-    else 
-    {
-        if(k%2)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
-    }
-  }
-
+  int n;
+  cin>>n;
+  int n1=log2(n),n2=pow(2,n1);
+  cout<<n-n2<<blk<<n2<<nl;
 }
-//   if(v.size()%2==1  /*&& v[0]+1 ==v[1]*/)cout<<"NO"<<nl;
-//   else if(v.size()==2 && v[0]+1 == v[1])cout<<"NO"<<nl;
-//   else cout<<"YES"<<nl;

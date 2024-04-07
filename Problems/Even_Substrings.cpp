@@ -34,7 +34,7 @@ int32_t main()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
  int ts=1;
- cin>>ts;
+ //cin>>ts;
  while(ts--)
  {
     solve();
@@ -42,36 +42,15 @@ int32_t main()
 }
 void solve()
 {
-  int n,k;
-  cin>>n>>k;
-  int a[n],cnt0=0,cnt2=0,ans=0;
+  int n;
+  cin>>n;
+  string s;
+  cin>>s;
+  int ans=0;
   ffor(i,0,n)
   {
-    cin>>a[i];
-    if(a[i]%2)cnt0++;
-    else cnt2++;
-    ans+=a[i];
+    if((s[i]-'0')%2)continue;
+    ans+=(i+1);
   }
-  if(!cnt0)
-  {
-    cout<<"NO"<<nl;
-  }
-  else if(k==n)
-  {
-    if(ans%2)cout<<"YES"<<nl;
-    else cout<<"NO"<<nl;
-  }
-  else
-  {
-    if(cnt2)cout<<"YES"<<nl;
-    else 
-    {
-        if(k%2)cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
-    }
-  }
-
+  cout<<ans<<nl;
 }
-//   if(v.size()%2==1  /*&& v[0]+1 ==v[1]*/)cout<<"NO"<<nl;
-//   else if(v.size()==2 && v[0]+1 == v[1])cout<<"NO"<<nl;
-//   else cout<<"YES"<<nl;
