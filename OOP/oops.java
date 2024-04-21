@@ -3,6 +3,7 @@ import java.util.*;//for whole packages
 class Pen{
     String color;
     String type;
+    static String school;
     public void write()
     {
         System.out.println("writing something");
@@ -10,6 +11,10 @@ class Pen{
     public void printcolor()
     {
         System.out.println(this.color);
+    }
+    public static void changeschool()
+    {
+        school="Kolkata Collegiate School.";
     }
 }
 class Student{
@@ -27,7 +32,7 @@ class Student{
     }
     public void printinfo()
     {
-        System.out.println(this.name+" "+this.age);
+        System.out.println(this.name+" "+this.age+" "+this.school);
     }
     Student(String name,int age)
     {
@@ -104,6 +109,19 @@ class Chicken extends Animal
         System.out.println("Walks on 2 legs");
     }
 }
+interface animal1
+{
+    int eyes=2;//fixed or static.
+    public void walk();
+}
+interface herbivore{}
+class Horses implements animal1,herbivore//interface no extends it implemnents
+{
+    public void walk()
+    {
+        System.out.println("walks on 4 leg");
+    }
+}
 /*Abstraction*/
 public class oops {
    public static void main(String args[])
@@ -129,13 +147,14 @@ public class oops {
     t1.printinfo();
     Horse horse=new Horse();
     horse.walk();
+    pen2.changeschool();
     //Animal animal=new Animal();
    }
 }
 /* 
 Abstraction:
-1. Show important thing and do not show important thing.This give compliation error.
-2. 
+1. abstract key using:Show important thing and do not show important thing.This give compliation error.
+2. interface key using:
 ------------------------------------------
 Inheritance:
 Transform properties from one class to another class.
@@ -161,4 +180,5 @@ Access Modifiers:
 (b) Private type
 (c) Protected type
 (d) Default type
+Static keyword: A property common for class.
 */
