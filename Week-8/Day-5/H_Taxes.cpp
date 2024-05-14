@@ -31,7 +31,7 @@ int power(int x,int y)
 bool prime(int x)
 {
     if(x==1)return 0;
-    for(int i=2;i*i <x;i++)
+    for(int i=2;i*i <=x;i++)
     {
         if(x%i ==0)return 0;
     }
@@ -53,8 +53,8 @@ void solve()
 {
   int n;
   cin>>n;
-  if(n%2 ==0)cout<<2<<nl;
-  else if(prime(n))cout<<1<<nl;
+  if(prime(n))cout<<1<<nl;
+  else if(n%2 ==0)cout<<2<<nl;
   else if(prime(n-2))cout<<2<<nl;
   else  cout<<3<<nl;
 }
