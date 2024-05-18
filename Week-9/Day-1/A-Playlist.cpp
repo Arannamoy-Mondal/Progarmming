@@ -69,7 +69,7 @@ void solve()
             st.erase(a[l]);
             l++;
         }
-        //l++;
+        l++;
     }
   }
   cout<<mx<<nl;
