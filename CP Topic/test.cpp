@@ -1,52 +1,46 @@
 #include<bits/stdc++.h>
-#define int long long
-#define nl "\n"
-#define blk " "
-#define rep(i,in,n) for(int i=in;i<n;i++)
-#define pb push_back
-#ifndef ONLINE_JUDGE
-#define debug(a) cout<<#a<<blk<<a<<nl;
-#define sep(a) cout<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
-#else
-#define debug(a)
-#define sep(a)
-#endif
-const int N=1e5+5;
+const int N=1e7+5;
 using namespace std;
-int power(int x,int y)
-{
-    int res=1;
-    while(y)
-    {
-        if(y&1)
-        {
-            res*=x;
-            //res%=N;
-        }
-        x*=x;
-        y>>=1;
+bitset<N>isprime;
+vector<int>prime;
+void sieve(){
+    for(int i=3;i<=N;i+=2)isprime[i]=1;
+    for(int i=3;i*i<=N;i+=2){
+        if(isprime[i])for(int j=i*i;j<=N;j+=i)isprime[j]=0;
     }
-    return res;
+    prime.push_back(2);
+    isprime[2]=1;
+    for(int i=3;i<=N;i+=2)prime.push_back(i);
 }
-void solve();
 int32_t main()
 {
- ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
- int ts=1;
- cin>>ts;
- while(ts--)
- {
-    solve();
- }
-}
-void solve()
-{
-  string s;
-  cin>>s;
-  int sum=0;
-  rep(i,0,s.size()-1)
-  {
-    sum+=abs(s[i]-s[i+1]);
-  }
-  cout<<sum<<nl;
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    #endif
+        sieve();
+        int n;
+        cin>>n;
+        if(n==2 || n==3){
+            cout<<1<<endl;
+            cout<<n<<endl;
+            return 0;
+        }
+        int sum=0;
+        vector<int>ans;
+        for(auto it:prime){
+            if(it>n)break;
+            bool flag=0;
+            while(it<=n){
+                ans.push_back(it);
+                n-=it;
+                if(n==2 || n==3){
+                    ans.push_back(n);
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag)break;
+        }
+        cout<<ans.size()<<"\n";
+        for(auto it:ans)cout<<it<<" ";
 }
