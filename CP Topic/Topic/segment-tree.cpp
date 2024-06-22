@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
-//#include<ext/pb_ds/assoc_container.hpp>
-//#include<ext/pb_ds/tree_policy.hpp>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
 #define int long long
 #define nl "\n"
 #define blk " "
@@ -14,9 +14,9 @@
 #define sep(a)
 #endif
 const int N=1e7+5;
-//using namespace __gnu_pbds;
+using namespace __gnu_pbds;
 using namespace std;
-//template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 int power(int x,int y)
 {
     int res=1;
@@ -52,13 +52,9 @@ cerr<<nl<<1.00*(clock()-cl)/CLOCKS_PER_SEC;
 }
 void solve()
 {
- int l,r;
- cin>>l>>r;
- int ans=0;
- while(r>1)
- {
-    r/=2;
-    ans++;
- }
- cout<<ans<<nl;
+ pbds<int>pb;
+ rep(i,0,10)pb.insert(i);
+ auto it=pb.find_by_order(3);
+ cout<<*it<<nl;
+ cout<<pb.order_of_key(10)<<nl;
 }
