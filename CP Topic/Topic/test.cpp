@@ -1,4 +1,3 @@
-//minimum power of primes
 #include<bits/stdc++.h>
 //#include<ext/pb_ds/assoc_container.hpp>
 //#include<ext/pb_ds/tree_policy.hpp>
@@ -18,17 +17,6 @@ const int N=1e7+5;
 //using namespace __gnu_pbds;
 using namespace std;
 //template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-bitset<N>isprime;
-vector<int>prime;
-void sieve(){
-    for(int i=3;i<=N;i+=2)isprime[i]=1;
-    isprime[2]=1;
-    prime.pb(2);
-    for(int i=3;i*i <=N;i+=2){
-        if(isprime[i])for(int j=i*i;j<=N;j+=i)isprime[j]=0;
-    }
-    for(int i=3;i<=N;i+=2)if(isprime[i])prime.pb(i);
-}
 int power(int x,int y)
 {
     int res=1;
@@ -53,7 +41,6 @@ auto cl=clock();
 #ifndef ONLINE_JUDGE
   freopen("input.txt","r",stdin);
 #endif
- sieve(); 
  int ts=1;
  //cin>>ts;
  rep(t,1,ts+1)
@@ -65,14 +52,11 @@ cerr<<nl<<1.00*(clock()-cl)/CLOCKS_PER_SEC;
 }
 void solve()
 {
- int n=3;
- //cin>>n;
- int ans=1;
- for(auto it:prime){
-    if(it*it >n)break;
-    int tmp=0;
-    for(int i=it;i<=n;i+=it)tmp++;
-    ans*=(tmp+1);
- }
- cout<<ans<<nl;
+ int n;
+ cin>>n;
+ vector<int>v(n);
+ rep(i,0,n)cin>>v[i];
+ int gcd=v[0];
+ rep(i,1,n)gcd=max(gcd,__gcd(gcd,v[i]));
+ cout<<gcd<<nl;
 }
