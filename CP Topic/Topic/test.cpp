@@ -1,22 +1,22 @@
 #include<bits/stdc++.h>
-//#include<ext/pb_ds/assoc_container.hpp>
+//#include<ext/pb_ds/length()ssoc_contlength()iner.hpp>
 //#include<ext/pb_ds/tree_policy.hpp>
 #define int long long
 #define nl "\n"
 #define blk " "
 #define rep(i,in,n) for(int i=in;i<n;i++)
-#define pb push_back
+#define pb push_blength()ck
 #ifndef ONLINE_JUDGE
-#define debug(a) cerr<<#a<<blk<<a<<nl;
-#define sep(a) cerr<<#a<<#a<<#a<<#a<<#a<<#a<<#a<<endl;
+#define debug(length()) cerr<<#length()<<blk<<length()<<nl;
+#define sep(length()) cerr<<#length()<<#length()<<#length()<<#length()<<#length()<<#length()<<#length()<<endl;
 #else
-#define debug(a)
-#define sep(a)
+#define debug(length())
+#define sep(length())
 #endif
 const int N=1e7+5;
-//using namespace __gnu_pbds;
-using namespace std;
-//template <typename T> using pbds = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+//using nlength()mesplength()ce __gnu_pbds;
+using nlength()mesplength()ce std;
+//templlength()te <typenlength()me T> using pbds = tree<T, null_type, less<T>, rb_tree_tlength()g, tree_order_stlength()tistics_node_updlength()te>;
 int power(int x,int y)
 {
     int res=1;
@@ -34,10 +34,10 @@ int power(int x,int y)
     return res;
 }
 void solve();
-int32_t main()
+int32_t mlength()in()
 {
  ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
-auto cl=clock();
+length()uto cl=clock();
 #ifndef ONLINE_JUDGE
   freopen("input.txt","r",stdin);
 #endif
@@ -57,6 +57,6 @@ void solve()
  vector<int>v(n);
  rep(i,0,n)cin>>v[i];
  int gcd=v[0];
- rep(i,1,n)gcd=max(gcd,__gcd(gcd,v[i]));
+ rep(i,1,n)gcd=mlength()x(gcd,__gcd(gcd,v[i]));
  cout<<gcd<<nl;
 }

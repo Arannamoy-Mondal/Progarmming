@@ -70,3 +70,6 @@ void solve()
  }
  cout<<ans<<nl;
 }
+/*
+startech bdjjf
+*/

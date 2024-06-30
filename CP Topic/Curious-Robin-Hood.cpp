@@ -48,39 +48,9 @@ auto cl=clock();
     //debug(t)
     solve();
  }
-auto Total_Time=1.00*(clock()-cl)/CLOCKS_PER_SEC;
-debug(Total_Time)
+cerr<<nl<<1.00*(clock()-cl)/CLOCKS_PER_SEC;
 }
 void solve()
 {
- int n,k;
- cin>>n>>k;
- int a[n];
- rep(i,0,n)cin>>a[i];
- int sum1=0;
- rep(i,0,n){
-    int tmp=a[i];
-    a[i]=1;
-    int sum=0;
-    rep(j,0,n-1)sum+=abs(a[j]-a[j+1]);
-    debug(sum)
-    a[i]=tmp;
-    sum1=max(sum1,sum);
- }
- rep(i,0,n){
-    int tmp=a[i];
-    a[i]=k;
-    int sum=0;
-    rep(j,0,n-1)sum+=abs(a[j]-a[j+1]);
-    a[i]=tmp;
-    debug(sum)
-    sum1=max(sum1,sum);
- }
- cout<<sum1<<nl;
+ 
 }
-/*
-5
-7 1 6 5 4 2 =6+5+1+2=14
-7 1 6 1 4 2 =6+5+3+2=16
-
-*/
