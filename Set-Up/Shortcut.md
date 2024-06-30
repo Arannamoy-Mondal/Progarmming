@@ -20,6 +20,7 @@
           <li>windows built in keyboard win + v</li>
           <li>text format in vs code alt + shift + f</li>
           <li>change all selected current word ctrl + d</li>
+          <li>debugging in vs code f5</li>
         </ul>
       </h3>
     </keyboard-shortcut>
