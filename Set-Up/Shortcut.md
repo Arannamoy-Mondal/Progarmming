@@ -38,6 +38,12 @@
             <li>
         windows built in keyboard win + v
             </li>
+            <li>
+                maximize a window win + up arrow
+            </li>
+            <li>
+                minimize a window win + down arrow
+            </li>
         </ul>
     </h3>
      </keyboard-shortcut>
