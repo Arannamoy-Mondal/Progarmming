@@ -42,7 +42,7 @@ auto cl=clock();
   freopen("input.txt","r",stdin);
 #endif
  int ts=1;
- cin>>ts;
+ //cin>>ts;
  rep(t,1,ts+1)
  {
     //debug(t)
@@ -53,5 +53,8 @@ debug(Total_Time)
 }
 void solve()
 {
- 
+ int a,b;
+ cin>>a>>b;
+ int ans=power(a,b)+power(b,a);
+ cout<<ans<<nl;
 }
