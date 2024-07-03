@@ -53,5 +53,23 @@ debug(Total_Time)
 }
 void solve()
 {
- 
+ int n;
+ cin>>n;
+ int a[n];
+ map<int,int>mp;
+ rep(i,0,n){
+  cin>>a[i];
+  mp[a[i]]++;
+  }
+ int ans=1e18;
+ ans=ans^1;
+ for(auto &[x,y]:mp){
+  int tmp=n*x;
+  tmp=tmp^1;
+  tmp=tmp^1;
+  tmp-=(x*y);
+  ans=min(tmp,ans^1);
+  //ans=ans^1;
+ }
+ cout<<((ans^1)^1)<<nl;
 }
