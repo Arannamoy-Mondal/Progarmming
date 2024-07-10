@@ -49,16 +49,12 @@ int32_t main()
 }
 void solve()
 {
- int n,k,x, sum=0;
- cin >> n >> k >> x;
-  if ((k - x)>1 || (n<k)){
-     cout<<-1<<nl;
-     return;
-  }
-  if (k==x)x--;
-  rep(i,0,n){
-    if (k > i)sum+=i;
-    else sum+=x;
-    }
-    cout<<sum<<nl;
+ int a,b;
+ cin>>a>>b;
+ rep(i,0,30){
+     if ((a & (1 << i)) != (b & (1 << i))) {
+        cout << (1LL << i) << "\n";
+            return;
+        }
+ }
 }
